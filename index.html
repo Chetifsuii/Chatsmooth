@@ -1,0 +1,319 @@
+<html><head><base href="https://websim.ai/rizz-generator/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizz Text Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --primary-color: #d49cff;
+    --secondary-color: #04fbed;
+    --background-color: #000000;
+    --surface-color: #121212;
+    --on-surface-color: #ffffff;
+    --divider-color: #2a2a2a;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--on-surface-color);
+    margin: 0;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 14px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcqRVCAAAAG3RSTlMAAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/wABAgMEBQYHCAkKCwwNDg8QERITFBUWFxgZGhscHR4fICEiIyQlJicoKSorLC0uLzAxMjM0NTY3ODk6Ozw9Pj9AQUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVpbXF1eX2BhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ent8fX5/gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9/v8AAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEFCQ0RFRkdISUpLTE1OT1BRUlNUVVZXWFlaW1xdXl9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1+f4CBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uPk5ebn6Onq6+zt7u/w8fLz9PX29/j5+vv8/f7/AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/w==');
+  }
+  .container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--surface-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+  }
+  .logo {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  h1 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(212, 156, 255, 0.5);
+  }
+  h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 22px;
+    margin-top: 24px;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  label i {
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  input, select, textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: var(--on-surface-color);
+    font-size: 14px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+  #generate {
+    padding: 14px 28px;
+    background: linear-gradient(to bottom, #04fbed, #03c6bb);
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  #generate i {
+    margin-right: 8px;
+  }
+  #generate:hover {
+    background: linear-gradient(to bottom, #05fff0, #04d8cc);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  #generate:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  #output {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 16px;
+    white-space: pre-wrap;
+    margin-top: 24px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .rizz-text {
+    margin-bottom: 16px;
+    padding: 14px;
+    background-color: #242424;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--divider-color), transparent);
+    margin: 24px 0;
+  }
+  .fa-fire { color: #ff8080; }
+  .fa-comment-alt { color: #5ff2e9; }
+  .fa-language { color: #54ccff; }
+  .fa-magic { color: #c770ff; }
+  .fa-list-ol { color: #ffff3c; }
+  .fa-text-width { color: #2fff9a; }
+  .fa-bolt { color: #ffa54f; }
+  .fa-heart { color: #ff6b78; }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 12px;
+    }
+    .container {
+      padding: 16px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    .options-grid {
+      grid-template-columns: 1fr;
+    }
+    #generate {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <h1><i class="fas fa-fire"></i> Rizz Text Generator</h1>
+    </div>
+    
+    <h2>Input</h2>
+    <div class="input-group">
+      <label for="topic"><i class="fas fa-comment-alt"></i> Topic or Context:</label>
+      <textarea id="topic" placeholder="Enter a detailed topic or context for your rizz texts"></textarea>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <h2>Options</h2>
+    <div class="options-grid">
+      <div class="input-group">
+        <label for="language"><i class="fas fa-language"></i> Language:</label>
+        <select id="language">
+          <option value="en">English 🇬🇧</option>
+          <option value="es">Español 🇪🇸</option>
+          <option value="fr">Français 🇫🇷</option>
+          <option value="de">Deutsch 🇩🇪</option>
+          <option value="it">Italiano 🇮🇹</option>
+          <option value="pt">Português 🇵🇹</option>
+          <option value="bs">Bosanski 🇧🇦</option>
+          <option value="hr">Hrvatski 🇭🇷</option>
+          <option value="sr">Srpski 🇷🇸</option>
+          <option value="nl">Nederlands 🇳🇱</option>
+          <option value="sv">Svenska 🇸🇪</option>
+          <option value="no">Norsk 🇳🇴</option>
+          <option value="da">Dansk 🇩🇰</option>
+          <option value="fi">Suomi 🇫🇮</option>
+          <option value="pl">Polski 🇵🇱</option>
+          <option value="ru">Русский 🇷🇺</option>
+          <option value="ja">日本語 🇯🇵</option>
+          <option value="ko">한국어 🇰🇷</option>
+          <option value="zh">中文 🇨🇳</option>
+          <option value="ar">العربية 🇸🇦</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="style"><i class="fas fa-magic"></i> Style:</label>
+        <select id="style">
+          <option value="flirty">Flirty 😘</option>
+          <option value="funny">Funny 😂</option>
+          <option value="romantic">Romantic 🌹</option>
+          <option value="smooth">Smooth 😎</option>
+          <option value="clever">Clever 🧠</option>
+          <option value="cute">Cute 🥰</option>
+          <option value="mysterious">Mysterious 🕵️</option>
+          <option value="confident">Confident 💪</option>
+          <option value="sassy">Sassy 💁‍♀️</option>
+          <option value="nerdy">Nerdy 🤓</option>
+          <option value="poetic">Poetic 📜</option>
+          <option value="cheesy">Cheesy 🧀</option>
+          <option value="playful">Playful 🎭</option>
+          <option value="witty">Witty 🎩</option>
+          <option value="sincere">Sincere 🤲</option>
+          <option value="adventurous">Adventurous 🏞️</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="count"><i class="fas fa-list-ol"></i> Number of Texts:</label>
+        <input type="number" id="count" min="1" max="20" value="10">
+      </div>
+      <div class="input-group">
+        <label for="length"><i class="fas fa-text-width"></i> Text Length:</label>
+        <select id="length">
+          <option value="short">Short</option>
+          <option value="medium">Medium</option>
+          <option value="long">Long</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <button id="generate"><i class="fas fa-bolt"></i> Generate Rizz Texts</button>
+    
+    <h2>Generated Texts</h2>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    async function generateRizzTexts() {
+      const topic = document.getElementById('topic').value;
+      const language = document.getElementById('language').value;
+      const style = document.getElementById('style').value;
+      const count = document.getElementById('count').value;
+      const length = document.getElementById('length').value;
+      const output = document.getElementById('output');
+
+      if (!topic) {
+        alert('Please enter a topic or context');
+        return;
+      }
+
+      output.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating rizz texts...';
+
+      try {
+        const response = await fetch('/api/intelligent-ai', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            prompt: `Generate ${count} unique, ${style}, and confident "${length}" "rizz" texts based on the topic or context: "${topic}". Respond in ${language}. Make sure each text is creative, tailored to the chosen style, and has a smooth, natural flow. Aim for texts that are charming, engaging, and likely to impress. Do not include numbering in the generated texts.`,
+            max_tokens: 500,
+            temperature: 0.8,
+            n: 1,
+            stop: null
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('API request failed');
+        }
+
+        const data = await response.json();
+        const generatedText = data.choices[0].text;
+        const rizzTexts = generatedText.split('\n').filter(text => text.trim() !== '');
+        
+        output.innerHTML = rizzTexts.map((text, index) => `<div class="rizz-text"><i class="fas fa-heart"></i> ${text.trim()}</div>`).join('');
+      } catch (error) {
+        console.error('Error:', error);
+        output.innerHTML = '<i class="fas fa-exclamation-triangle"></i> An error occurred while generating rizz texts. Please try again.';
+      }
+    }
+
+    document.getElementById('generate').addEventListener('click', generateRizzTexts);
+  </script>
+</body>
+</html>
